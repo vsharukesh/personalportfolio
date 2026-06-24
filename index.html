@@ -2398,9 +2398,11 @@ html.lenis,html.lenis body{height:auto;}
             formData.forEach(function(value, key){
                 object[key] = value;
             });
+            // Web3Forms requires the key to be sent directly from the browser on free plans
+            object['access_key'] = '878b0122-4fcc-4520-9831-a31210d0a642';
             var json = JSON.stringify(object);
             
-            fetch('/api/contact', {
+            fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
